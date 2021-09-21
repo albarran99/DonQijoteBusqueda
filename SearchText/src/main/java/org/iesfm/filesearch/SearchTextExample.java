@@ -6,11 +6,7 @@ import java.io.IOException;
 
 public class SearchTextExample {
 
-    public static void main(String[] args) {
-
-    }
-
-    public static int Search(String text) {
+    public static int search(String text) {
         int lines = 0;
         try (BufferedReader reader = new BufferedReader(
                 new FileReader(
@@ -28,6 +24,7 @@ public class SearchTextExample {
             e.printStackTrace();
 
         }
+
         return lines;
     }
 }

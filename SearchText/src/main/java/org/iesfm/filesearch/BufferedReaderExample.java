@@ -7,20 +7,11 @@ public class BufferedReaderExample {
     private static final Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Runnable firtsLine = new Runnable() {
-            @Override
-            public void run() {
                 mainMenu();
-            }
-        };
-
-        Thread firstThread = new Thread(firtsLine);
-        firstThread.start();
-
     }
 
     public static void mainMenu() {
-        Runnable secondLine = new Runnable() {
+        Runnable firstLine = new Runnable() {
             @Override
             public void run() {
                 System.out.println("-----------Introduce un numero---------------");
@@ -29,11 +20,11 @@ public class BufferedReaderExample {
                 int answerNumber = scan.nextInt();
 
 
-                while (answerNumber == 1) {
-                    System.out.println("introduce el texto a buscar \n");
-                    String text = scan.nextLine();
+                while (answerNumber != 2) {
+                    System.out.println("introduce el texto a buscar ");
+                    String text = scan.next();
 
-                    int number = SearchTextExample.Search(text);
+                    int number = SearchTextExample.search(text);
 
                     System.out.println("se ha encontrado " + number);
 
@@ -43,7 +34,7 @@ public class BufferedReaderExample {
             }
         };
 
-        Thread secondThread = new Thread(secondLine);
-        secondThread.start();
+        Thread firstThread = new Thread(firstLine);
+        firstThread.start();
     }
 }
